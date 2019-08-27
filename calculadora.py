@@ -48,17 +48,27 @@ def calcZeroReais (a, b):
         calcZeroReais(a, interacao)
     if resultFdeX > 0:
         calcZeroReais(interacao, b)
+def filtraParaCalcular(calc_intervalo_real_num, calc_intervalo):
+    #calcZeroReais(0, 1)
+    tamanho_array = len(calc_intervalo)
+    for i in range (0, tamanho_array, 2):
+        if calc_intervalo_real_num[i]>0:
+            print(calc_intervalo[i], calc_intervalo[i+1])
+            calcZeroReais(calc_intervalo[i], calc_intervalo[i+1])
+        else:
+            print(calc_intervalo[i], calc_intervalo[i+1])
+            calcZeroReais(calc_intervalo[i+1], calc_intervalo[i])
 
 intervalo = -5
 resultado = calcularIsolamento(intervalo)
 calc_intervalo = calcularIntervalo(resultado, intervalo)
-zeroReal = calcZeroReais(0, 1)
+filtraParaCalcular(calc_intervalo_real_num, calc_intervalo)
 # print(interacaoX)
 # print(interacaoFdeX)
 # print(interacaoBmenosA)
-print(resultado)
-print(calc_intervalo_real_num)
-print(calc_intervalo)
+# print(resultado)
+# print(calc_intervalo_real_num)
+# print(calc_intervalo)
 #print(calcFdeX(x5, x4, x3, x2, x1, x, -5))
 
 
